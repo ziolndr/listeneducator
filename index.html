@@ -373,7 +373,7 @@ h1{font-size:clamp(92px,9vw,150px);line-height:.78;letter-spacing:-.085em}
       </div>
 
       <div class="hero-image-panel">
-        <img src="teach_images/team_collaboration_in_modern_meeting_room.png" alt="Collaborative social-impact team in discussion">
+        <img src="teach_images/team_collaboration_in_modern_meeting_room.png" data-fallbacks="/teach_images/team_collaboration_in_modern_meeting_room.png|team_collaboration_in_modern_meeting_room.png|/team_collaboration_in_modern_meeting_room.png" alt="Collaborative social-impact team in discussion">
         <div class="hero-stats-overlay" aria-label="TEACH corpus statistics">
           <div class="stat"><strong id="statCount">24</strong><span>Real candidates</span></div>
           <div class="stat"><strong>10</strong><span>Response forms</span></div>
@@ -418,15 +418,15 @@ h1{font-size:clamp(92px,9vw,150px);line-height:.78;letter-spacing:-.085em}
   <section class="soul-strip">
     <div class="shell soul-grid">
       <article class="soul-card">
-        <div class="soul-media"><img src="teach_images/serious_conversation_in_a_professional_space.png" alt="Reflective individual in a bright workspace"></div>
+        <div class="soul-media"><img src="teach_images/serious_conversation_in_a_professional_space.png" data-fallbacks="/teach_images/serious_conversation_in_a_professional_space.png|serious_conversation_in_a_professional_space.png|/serious_conversation_in_a_professional_space.png" alt="Reflective individual in a bright workspace"></div>
         <div class="soul-copy"><div class="soul-label">Person</div><h3 class="soul-title">Start with the man, not the category.</h3><p>A real person with motives, constraints, history, fear, purpose and agency.</p></div>
       </article>
       <article class="soul-card">
-        <div class="soul-media"><img src="teach_images/collaborative_meeting_in_a_bright_office.png" alt="Small team working together around a table"></div>
+        <div class="soul-media"><img src="teach_images/collaborative_meeting_in_a_bright_office.png" data-fallbacks="/teach_images/collaborative_meeting_in_a_bright_office.png|collaborative_meeting_in_a_bright_office.png|/collaborative_meeting_in_a_bright_office.png" alt="Small team working together around a table"></div>
         <div class="soul-copy"><div class="soul-label">Community</div><h3 class="soul-title">Understand why men enter — and why they leave.</h3><p>Mentorship, pay, certification, belonging, leadership and school culture can compete in the same field.</p></div>
       </article>
       <article class="soul-card">
-        <div class="soul-media"><img src="teach_images/serious_discussion_in_a_modern_office.png" alt="Mentor and young man in conversation"></div>
+        <div class="soul-media"><img src="teach_images/serious_discussion_in_a_modern_office.png" data-fallbacks="/teach_images/serious_discussion_in_a_modern_office.png|serious_discussion_in_a_modern_office.png|/serious_discussion_in_a_modern_office.png" alt="Mentor and young man in conversation"></div>
         <div class="soul-copy"><div class="soul-label">Movement</div><h3 class="soul-title">Measure the divergence.</h3><p>See where the teacher, principal, district, policymaker, student and father stop seeing the same problem.</p></div>
       </article>
     </div>
@@ -1061,6 +1061,21 @@ renderIndex();
 resizeQuery();
 </script>
 
+
+
+<script>
+(() => {
+  document.querySelectorAll('img[data-fallbacks]').forEach(img => {
+    const fallbacks = (img.dataset.fallbacks || '').split('|').filter(Boolean);
+    let index = 0;
+    img.addEventListener('error', () => {
+      if (index < fallbacks.length) {
+        img.src = fallbacks[index++];
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
