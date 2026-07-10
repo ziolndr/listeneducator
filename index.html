@@ -1,0 +1,1066 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>LISTEN — Male Educator Pathways</title>
+<meta name="description" content="A male educator recruitment, retention and pathway coherence surface powered by ARBITER.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Instrument+Sans:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{
+  --paper:#fff;
+  --ink:#000;
+  --body:#222;
+  --muted:#777;
+  --quiet:#aaa;
+  --line:#e5e5e5;
+  --line-dark:#cfcfcf;
+  --wash:#f7f7f5;
+  --signal:#ff4d00;
+  --blue:#09f;
+  --max:1480px;
+  --pad:32px;
+  --sans:"Instrument Sans",Arial,sans-serif;
+  --mono:"Fragment Mono",ui-monospace,monospace;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--body);font-family:var(--sans);font-size:15px;line-height:1.25;-webkit-font-smoothing:antialiased}
+button,textarea,input{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+::selection{background:#000;color:#fff}
+.shell{width:min(100%,var(--max));margin:0 auto}
+.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{height:74px;padding:0 var(--pad);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+.brand strong{font-size:24px;line-height:1;letter-spacing:-.9px;font-weight:700;color:#111}
+.brand>span:not(.brand-mark){font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.nav-meta{display:flex;gap:24px;align-items:center;font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.brand-lock{display:flex;align-items:center;gap:12px;font-family:var(--sans)!important;font-size:inherit!important;color:inherit!important;letter-spacing:0!important;text-transform:none!important}
+.brand-mark-mini{width:28px;height:28px;object-fit:contain;display:block}
+.brand .brand-mark{position:relative;display:inline-block;width:34px;height:22px;flex:0 0 auto;color:#1557ff!important;font-family:initial;font-size:initial;letter-spacing:initial;text-transform:none}
+.brand-mark .core{position:absolute;left:50%;top:50%;width:12px;height:12px;background:currentColor;border-radius:999px;transform:translate(-50%,-50%)}
+.brand-mark .ring{position:absolute;top:1px;bottom:1px;width:9px;border:4px solid currentColor;border-top-color:transparent;border-bottom-color:transparent;border-radius:999px}
+.brand-mark .left{border-right-color:transparent}
+.brand-mark .right{border-left-color:transparent}
+.brand-mark .outer.left{left:0}
+.brand-mark .inner.left{left:8px}
+.brand-mark .inner.right{right:8px}
+.brand-mark .outer.right{right:0}
+.signal-dot{width:8px;height:8px;background:var(--signal);display:inline-block}
+.hero{padding:54px var(--pad) 40px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(390px,.95fr);gap:34px;align-items:stretch}
+.eyebrow{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0 0 18px}
+h1{font-size:clamp(86px,10vw,150px);line-height:.78;letter-spacing:-.085em;margin:0;font-weight:600;color:#000}
+.hero-dek{margin:18px 0 0;max-width:11ch;font-size:clamp(28px,3vw,44px);line-height:.96;letter-spacing:-1.5px;font-weight:500;color:#202020}
+.hero-side{border-left:1px solid var(--line);padding-left:28px;display:grid;grid-template-columns:160px minmax(0,1fr);gap:20px 22px;align-content:start}
+.hero-copy{display:flex;flex-direction:column;justify-content:space-between;min-height:640px;padding-right:8px}
+.hero-mark-card{border:1px solid var(--line);padding:20px 16px 16px;background:linear-gradient(180deg,#fff,#fbfbf9);min-height:160px;display:flex;align-items:center;justify-content:center}
+.hero-mark-card img{width:min(100%,108px);display:block}
+.hero-media-block{grid-column:2;grid-row:1 / span 2}
+.hero-visual{border:1px solid var(--line);background:#f5f5f3;overflow:hidden;aspect-ratio:4/5;min-height:320px}
+.hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-visual-caption{display:flex;justify-content:space-between;gap:18px;padding-top:10px;font-family:var(--mono);font-size:9px;line-height:1.4;text-transform:uppercase;color:var(--muted)}
+.hero-summary{grid-column:1 / -1;border-top:1px solid var(--line);padding-top:18px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:18px;align-items:start}
+.side-copy{margin:0;font-size:28px;line-height:1.02;max-width:17ch;letter-spacing:-1px;color:#101010}
+.data-stats{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);align-self:start}
+.stat{padding:14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.stat strong{display:block;font-size:28px;line-height:1;letter-spacing:-1px;color:#000}
+.stat span{display:block;margin-top:7px;font-family:var(--mono);font-size:9px;line-height:1.3;text-transform:uppercase;color:var(--muted)}
+.mode-strip{padding:0 var(--pad);border-bottom:1px solid var(--line)}
+.mode-row{display:flex;gap:0}
+.mode-btn{appearance:none;border:0;border-right:1px solid var(--line);background:#fff;padding:17px 22px 16px 0;margin-right:22px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--quiet);position:relative}
+.mode-btn.active{color:#000}
+.mode-btn.active::after{content:"";position:absolute;left:0;right:22px;bottom:-1px;height:3px;background:#000}
+.listen-panel{padding:36px var(--pad) 42px;border-bottom:1px solid var(--line)}
+.prompt-grid{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:24px;align-items:end}
+.prompt-wrap{position:relative;border-top:1px solid #000;border-bottom:1px solid #000;padding:18px 74px 18px 0}
+textarea{display:block;width:100%;border:0;outline:0;resize:none;background:transparent;font-size:clamp(28px,3.5vw,58px);line-height:1.02;letter-spacing:-2px;font-weight:500;min-height:2.2em;max-height:5.2em;overflow:auto}
+textarea::placeholder{color:#bbb}
+.go{position:absolute;right:0;top:50%;transform:translateY(-50%);width:54px;height:54px;border:0;background:#000;color:#fff;font-size:26px;display:grid;place-items:center;transition:background .15s ease}
+.go:hover{background:var(--signal)}
+.listen-note{font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.45;text-transform:uppercase}
+.examples{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.example{border:1px solid var(--line);background:#fff;padding:8px 10px;font-family:var(--mono);font-size:9px;color:#666;text-align:left}
+.example:hover{border-color:#000;color:#000}
+.status{margin-top:16px;display:flex;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.soul-strip{padding:0 var(--pad) 42px;border-bottom:1px solid var(--line)}
+.soul-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.soul-card{border:1px solid var(--line);background:#fff;text-decoration:none;color:inherit}
+.soul-media{aspect-ratio:16/10;overflow:hidden;background:#f4f4f2}
+.soul-media img{width:100%;height:100%;display:block;object-fit:cover}
+.soul-copy{padding:14px 14px 16px}
+.soul-label{font-family:var(--mono);font-size:9px;line-height:1.4;text-transform:uppercase;color:var(--muted)}
+.soul-title{margin:8px 0 0;font-size:22px;line-height:1;letter-spacing:-.8px;color:#000}
+.soul-copy p{margin:8px 0 0;font-size:13px;line-height:1.38;color:#666}
+.results{display:none}
+body.has-results .results{display:block}
+.results-head{padding:34px var(--pad) 0}
+.result-topline{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;border-bottom:1px solid #000;padding-bottom:16px}
+.result-query{font-size:clamp(30px,4vw,66px);line-height:.96;letter-spacing:-2.6px;font-weight:600;max-width:18ch}
+.result-measure{font-family:var(--mono);font-size:9px;color:var(--muted);text-align:right;text-transform:uppercase;line-height:1.5}
+.seats{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--line)}
+.seat-btn{border:0;border-right:1px solid var(--line);background:#fff;padding:13px 16px;font-family:var(--mono);font-size:9px;text-transform:uppercase;color:#888;position:relative}
+.seat-btn.active{color:#000;background:var(--wash)}
+.seat-btn.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--signal)}
+.result-list{border-bottom:1px solid #000}
+.result-row{display:grid;grid-template-columns:56px 110px minmax(240px,1.5fr) minmax(220px,1fr) 110px;border-bottom:1px solid var(--line);min-height:96px;background:#fff;text-decoration:none;color:inherit;transition:background .14s ease}
+.result-row:hover{background:var(--wash)}
+.result-row.top{min-height:138px}
+.cell{padding:15px 14px;border-right:1px solid var(--line);min-width:0}
+.result-row.top .cell:last-child{border-right:0}
+.rank{font-family:var(--mono);font-size:11px;color:#777}
+.type{font-family:var(--mono);font-size:9px;text-transform:uppercase;color:#777;letter-spacing:.04em}
+.title-cell h3{margin:0;font-size:clamp(19px,2vw,29px);line-height:1.02;letter-spacing:-.9px;color:#000;font-weight:600}
+.title-cell .org{margin-top:8px;font-family:var(--mono);font-size:9px;color:#888;text-transform:uppercase}
+.desc{font-size:14px;line-height:1.32;color:#555;letter-spacing:-.2px}
+.score{text-align:right;font-family:var(--mono);font-size:12px;color:#000}
+.score strong{display:block;font-family:var(--sans);font-size:29px;letter-spacing:-1px;line-height:1}
+.delta{display:block;margin-top:7px;font-family:var(--mono);font-size:8px;color:var(--muted)}
+.result-detail{display:none;grid-column:1/-1;border-top:1px solid var(--line);background:#fafafa;padding:18px 56px 22px;grid-template-columns:minmax(0,1fr) .85fr;gap:24px;align-items:start}
+.result-row.open + .result-detail{display:grid}
+.detail-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-family:var(--mono);font-size:8px;border:1px solid var(--line-dark);padding:5px 7px;text-transform:uppercase;color:#666}
+.source-link{font-family:var(--mono);font-size:9px;text-transform:uppercase;color:#000;text-underline-offset:3px}
+.source-note{font-family:var(--mono);font-size:9px;color:#888;line-height:1.5;text-transform:uppercase}
+.density{padding:54px var(--pad);border-bottom:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;margin-bottom:20px}
+.section-head h2{margin:0;font-size:clamp(44px,7vw,102px);line-height:.78;letter-spacing:-5px;font-weight:600;color:#000}
+.section-head p{max-width:36ch;margin:0;font-size:15px;color:#666}
+.index-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #000;border-left:1px solid var(--line)}
+.index-item{min-height:220px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:0;background:#fff}
+.index-item:hover{background:var(--wash)}
+.index-copy{padding:14px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;flex:1}
+.index-type{font-family:var(--mono);font-size:8px;color:#888;text-transform:uppercase}
+.index-item h4{margin:0;font-size:18px;line-height:1.05;letter-spacing:-.5px;color:#000}
+.index-item p{margin:8px 0 0;font-size:12px;line-height:1.35;color:#666}
+.index-source{font-family:var(--mono);font-size:8px;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px}
+.footer{padding:30px var(--pad) 70px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:9px;color:#888;text-transform:uppercase}.footer-left{justify-self:start}.footer-right{justify-self:end;text-align:right}.footer-logo-wrap{display:flex;align-items:center;justify-content:center}.footer-logo{position:relative;display:inline-block;width:54px;height:34px;color:#1557ff!important;flex:0 0 auto}.footer-logo .core{position:absolute;left:50%;top:50%;width:18px;height:18px;background:currentColor;border-radius:999px;transform:translate(-50%,-50%)}.footer-logo .ring{position:absolute;top:2px;bottom:2px;width:13px;border:5px solid currentColor;border-top-color:transparent;border-bottom-color:transparent;border-radius:999px}.footer-logo .left{border-right-color:transparent}.footer-logo .right{border-left-color:transparent}.footer-logo .outer.left{left:0}.footer-logo .inner.left{left:12px}.footer-logo .inner.right{right:12px}.footer-logo .outer.right{right:0}
+.loader{display:none;position:fixed;inset:0;z-index:100;background:#fff;color:#000}
+body.loading .loader{display:block}
+.loader-inner{height:100%;padding:32px;display:flex;flex-direction:column;justify-content:space-between}
+.loader-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;text-transform:uppercase}
+.loader-query{font-size:clamp(48px,8vw,124px);line-height:.82;letter-spacing:-6px;font-weight:600;max-width:13ch}
+.loader-bar{height:2px;background:#eee;overflow:hidden}
+.loader-bar span{display:block;height:100%;width:32%;background:#000;animation:measure 1.2s ease-in-out infinite}
+@keyframes measure{0%{transform:translateX(-110%)}100%{transform:translateX(420%)}}
+.error{display:none;margin:18px 0 0;padding:12px 14px;background:#fff3ef;border-left:3px solid var(--signal);font-family:var(--mono);font-size:10px;line-height:1.5}
+.error.show{display:block}
+@media(max-width:980px){
+  :root{--pad:20px}
+  .hero-grid,.prompt-grid{grid-template-columns:1fr}
+  .hero-side{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}
+  .prompt-grid{gap:16px}
+  .result-row{grid-template-columns:44px 78px minmax(0,1fr) 84px}
+  .result-row .desc{display:none}
+  .result-detail{padding:18px 20px;grid-template-columns:1fr}
+  .result-detail .source-note{grid-column:1/-1}
+  .index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .soul-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav-inner{height:62px}
+  .nav-meta span:not(.signal-dot){display:none}
+  .hero{padding-top:44px}
+  h1{font-size:clamp(68px,24vw,112px)}
+  .hero-dek{font-size:30px}
+  .data-stats{grid-template-columns:1fr 1fr}
+  .mode-row{overflow-x:auto}
+  .mode-btn{white-space:nowrap}
+  textarea{font-size:34px;letter-spacing:-1.5px}
+  .result-topline{display:block}
+  .result-measure{text-align:left;margin-top:16px}
+  .result-row{grid-template-columns:34px 58px minmax(0,1fr) 72px;min-height:112px}
+  .result-row   .cell{padding:12px 8px}
+  .title-cell h3{font-size:19px}
+  .score strong{font-size:22px}
+  .index-grid{grid-template-columns:1fr}
+  .hero-mark-card img{width:148px}
+  .section-head{display:block}
+  .section-head p{margin-top:18px}
+  .footer{grid-template-columns:1fr;justify-items:start;gap:14px}
+  .footer-left,.footer-right,.footer-logo-wrap{justify-self:start;text-align:left}
+}
+
+@media (min-width:1100px){
+  .hero-copy::after{content:"REAL PEOPLE · REAL COMMUNITIES · REAL NEEDS";margin-top:32px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;line-height:1.5;text-transform:uppercase;color:var(--muted);letter-spacing:.06em;display:block;max-width:44ch}
+}
+@media (max-width:1199px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .hero-copy{min-height:0;padding-right:0}
+  .hero-side{grid-template-columns:1fr;border-left:0;padding-left:0}
+  .hero-media-block{grid-column:1;grid-row:auto}
+  .hero-summary{grid-template-columns:1fr}
+  .side-copy{font-size:22px;max-width:none}
+}
+@media (max-width:760px){
+  .nav-inner{height:66px;padding:0 18px;gap:16px}
+  .nav-meta{gap:14px;font-size:9px}
+  .brand{gap:10px}
+  .brand span{display:none}
+  .brand strong{font-size:22px}
+  .hero{padding:34px 18px 28px}
+  .mode-strip,.listen-panel,.soul-strip,.results-head,.density,.foot{padding-left:18px;padding-right:18px}
+  .hero-dek{max-width:14ch;font-size:clamp(24px,8vw,34px)}
+  .hero-mark-card{min-height:120px}
+}
+
+
+/* Desktop composition rebuild */
+.hero{padding:46px var(--pad) 34px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(520px,.88fr);gap:42px;align-items:start}
+.hero-copy{display:flex;flex-direction:column;min-height:0;padding:6px 0 0}
+.hero-copy::after{display:none!important}
+.eyebrow{margin:0 0 28px}
+h1{font-size:clamp(92px,9vw,150px);line-height:.78;letter-spacing:-.085em}
+.hero-dek{margin:28px 0 0;max-width:12ch;font-size:clamp(30px,3.1vw,46px);line-height:.98;letter-spacing:-1.55px}
+.hero-footline{margin-top:42px;padding-top:14px;border-top:1px solid var(--line);max-width:520px;font-family:var(--mono);font-size:9px;line-height:1.45;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.hero-side{border-left:1px solid var(--line);padding-left:28px;display:grid;grid-template-columns:170px minmax(0,1fr);gap:18px 20px;align-items:start}
+.hero-mark-card{grid-column:1;min-height:170px;aspect-ratio:1;padding:0;display:grid;place-items:center;border:1px solid var(--line);background:#fff}.hero-mark-card .brand-mark{position:relative;display:inline-block;width:92px;height:64px;color:#1557ff!important;flex:0 0 auto}.hero-mark-card .brand-mark .core{position:absolute;left:50%;top:50%;width:34px;height:34px;background:currentColor;border-radius:999px;transform:translate(-50%,-50%)}.hero-mark-card .brand-mark .ring{position:absolute;top:5px;bottom:5px;width:24px;border:8px solid currentColor;border-top-color:transparent;border-bottom-color:transparent;border-radius:999px}.hero-mark-card .brand-mark .left{border-right-color:transparent}.hero-mark-card .brand-mark .right{border-left-color:transparent}.hero-mark-card .brand-mark .outer.left{left:0}.hero-mark-card .brand-mark .inner.left{left:20px}.hero-mark-card .brand-mark .inner.right{right:20px}.hero-mark-card .brand-mark .outer.right{right:0}
+.hero-media-block{grid-column:2;grid-row:1 / span 2;min-width:0}
+.hero-visual{aspect-ratio:4/5;min-height:0;border:1px solid var(--line);overflow:hidden;background:#f5f5f3}
+.hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-visual-caption{padding-top:9px}
+.hero-summary{grid-column:1 / -1;border-top:1px solid var(--line);padding-top:18px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:20px;align-items:start}
+.side-copy{margin:0;max-width:16ch;font-size:25px;line-height:1.02;letter-spacing:-.9px}
+.data-stats{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);align-self:start}
+.stat{padding:12px 13px 11px;min-height:78px}.stat strong{font-size:27px}.stat span{font-size:8px}
+@media (max-width:1250px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(430px,.9fr);gap:32px}.hero-side{grid-template-columns:145px minmax(0,1fr)}.hero-mark-card{min-height:145px}.hero-summary{grid-template-columns:1fr}.side-copy{max-width:22ch}}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr}.hero-side{border-left:0;padding-left:0;grid-template-columns:160px minmax(0,1fr);border-top:1px solid var(--line);padding-top:24px}.hero-copy{padding-top:0}}
+@media (max-width:760px){.hero{padding:32px 18px 26px}.hero-side{grid-template-columns:1fr}.hero-mark-card{width:124px;min-height:124px;aspect-ratio:1}.hero-media-block{grid-column:1;grid-row:auto}.hero-summary{grid-column:1}.hero-footline{margin-top:28px}}
+
+
+/* LISTEN full-bleed hero rebuild */
+.hero-fullbleed{padding:0!important;border-bottom:1px solid var(--line);overflow:hidden;background:#fff}
+.hero-stage{display:grid;grid-template-columns:minmax(430px,40%) minmax(0,60%);min-height:620px;width:100%;}
+.hero-copy-panel{padding:72px 54px 54px max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));display:flex;flex-direction:column;justify-content:flex-start;background:#fff;position:relative;z-index:2}
+.hero-copy-panel .eyebrow{max-width:46ch;margin:0 0 48px;font-size:10px;line-height:1.55}
+.hero-title-lockup{display:flex;align-items:flex-end;gap:28px;min-width:0}
+.hero-title-lockup h1{margin:0;font-size:clamp(92px,9vw,158px);line-height:.78;letter-spacing:-.085em;white-space:nowrap}
+.hero-inline-logo{position:relative;display:inline-block;width:78px;height:52px;color:#1557ff!important;flex:0 0 auto;margin-bottom:8px}
+.hero-inline-logo .core{position:absolute;left:50%;top:50%;width:28px;height:28px;background:currentColor;border-radius:999px;transform:translate(-50%,-50%)}
+.hero-inline-logo .ring{position:absolute;top:4px;bottom:4px;width:20px;border:7px solid currentColor;border-top-color:transparent;border-bottom-color:transparent;border-radius:999px}
+.hero-inline-logo .left{border-right-color:transparent}.hero-inline-logo .right{border-left-color:transparent}
+.hero-inline-logo .outer.left{left:0}.hero-inline-logo .inner.left{left:17px}.hero-inline-logo .inner.right{right:17px}.hero-inline-logo .outer.right{right:0}
+.hero-copy-panel .hero-dek{margin:34px 0 0;max-width:none;font-size:clamp(34px,3.3vw,52px);line-height:1.01;letter-spacing:-1.8px;color:#111}
+.hero-copy-panel .hero-footline{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);max-width:500px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero-image-panel{position:relative;min-width:0;min-height:620px;background:#111;overflow:hidden}
+.hero-image-panel>img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center center}
+.hero-stats-overlay{position:absolute;right:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));bottom:0;width:min(390px,42%);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-left:1px solid var(--line-dark);border-top:1px solid var(--line-dark);z-index:2}
+.hero-stats-overlay .stat{min-height:112px;padding:22px 24px;background:transparent;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hero-stats-overlay .stat strong{font-size:36px;letter-spacing:-1.5px}
+.hero-stats-overlay .stat span{margin-top:12px;font-size:9px;line-height:1.4}
+.hero-lower-band{min-height:158px;display:grid;grid-template-columns:minmax(0,1.2fr) 1px minmax(240px,.8fr);align-items:center;gap:34px;padding:30px max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)));background:#f5f4f1}
+.hero-lower-copy{font-size:clamp(24px,2.2vw,34px);line-height:1.02;letter-spacing:-1px;color:#111;max-width:28ch}
+.hero-lower-rule{width:1px;height:72px;background:var(--line-dark);justify-self:center}
+.hero-lower-link{justify-self:start;font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;text-underline-offset:5px;color:#1557ff}
+
+@media(max-width:1180px){
+  .hero-stage{grid-template-columns:minmax(380px,46%) minmax(0,54%);min-height:580px}
+  .hero-copy-panel{padding-top:56px}
+  .hero-copy-panel .eyebrow{margin-bottom:36px}
+  .hero-image-panel{min-height:580px}
+  .hero-stats-overlay{width:min(340px,60%);right:20px}
+}
+@media(max-width:900px){
+  .hero-stage{grid-template-columns:1fr;min-height:0}
+  .hero-copy-panel{padding:44px var(--pad) 40px;min-height:0}
+  .hero-title-lockup{gap:18px}
+  .hero-inline-logo{width:58px;height:40px;margin-bottom:4px}
+  .hero-inline-logo .core{width:22px;height:22px}
+  .hero-inline-logo .ring{top:3px;bottom:3px;width:15px;border-width:5px}
+  .hero-inline-logo .outer.left{left:0}.hero-inline-logo .inner.left{left:13px}.hero-inline-logo .inner.right{right:13px}.hero-inline-logo .outer.right{right:0}
+  .hero-image-panel{min-height:520px}
+  .hero-stats-overlay{right:0;width:min(360px,82%)}
+  .hero-lower-band{grid-template-columns:1fr;gap:18px;min-height:0;padding:28px var(--pad)}
+  .hero-lower-rule{display:none}.hero-lower-link{justify-self:start}
+}
+@media(max-width:640px){
+  .hero-copy-panel{padding:34px 18px 32px}
+  .hero-copy-panel .eyebrow{margin-bottom:28px;font-size:9px}
+  .hero-title-lockup{align-items:center;gap:12px}
+  .hero-title-lockup h1{font-size:clamp(70px,24vw,110px)}
+  .hero-inline-logo{width:46px;height:32px}
+  .hero-inline-logo .core{width:18px;height:18px}
+  .hero-inline-logo .ring{top:2px;bottom:2px;width:12px;border-width:4px}
+  .hero-inline-logo .outer.left{left:0}.hero-inline-logo .inner.left{left:10px}.hero-inline-logo .inner.right{right:10px}.hero-inline-logo .outer.right{right:0}
+  .hero-copy-panel .hero-dek{font-size:30px;line-height:1.02;margin-top:24px}
+  .hero-image-panel{min-height:420px}
+  .hero-stats-overlay{position:absolute;width:100%;right:0;bottom:0}
+  .hero-stats-overlay .stat{min-height:82px;padding:14px 16px}
+  .hero-stats-overlay .stat strong{font-size:28px}
+  .hero-stats-overlay .stat span{font-size:8px;margin-top:8px}
+  .hero-lower-band{padding:24px 18px}
+  .hero-lower-copy{font-size:24px}
+}
+
+
+/* Opening viewport fit — architectural fix, not a scroll workaround */
+@media (min-width:901px){
+  .hero-stage{
+    height:clamp(560px, calc(100vh - 232px), 620px);
+    min-height:0!important;
+  }
+  .hero-copy-panel,
+  .hero-image-panel{
+    height:100%;
+    min-height:0!important;
+  }
+  .hero-copy-panel{
+    overflow:hidden;
+    padding-top:48px;
+    padding-bottom:38px;
+  }
+  .hero-copy-panel .eyebrow{margin-bottom:34px}
+  .hero-copy-panel .hero-dek{margin-top:28px}
+  .hero-copy-panel .hero-footline{margin-top:28px}
+  .hero-lower-band{
+    height:158px;
+    min-height:158px;
+    padding-top:24px;
+    padding-bottom:24px;
+  }
+}
+@supports (height:100dvh){
+  @media (min-width:901px){
+    .hero-stage{height:clamp(560px, calc(100dvh - 232px), 620px)}
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-top"><span>LISTEN / ARBITER</span><span id="loaderMeta">MEASURING 24 REAL ENTITIES</span></div>
+    <div class="loader-query" id="loaderQuery">Listening.</div>
+    <div><div class="loader-bar"><span></span></div></div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="shell nav-inner">
+    <a class="brand" href="#top" aria-label="LISTEN home">
+      <strong>LISTEN</strong>
+      <span>Male educator pathways</span>
+    </a>
+    <div class="nav-meta"><span class="signal-dot"></span><span>ARBITER live</span><span>official-source corpus</span></div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero-fullbleed">
+    <div class="hero-stage">
+      <div class="hero-copy-panel">
+        <p class="eyebrow">Before deciding what to recruit, fund, certify, retain, or scale</p>
+        <div class="hero-title-lockup">
+          <h1>Listen.</h1>
+          <span class="brand-mark hero-inline-logo" aria-hidden="true">
+            <span class="ring outer left"></span>
+            <span class="ring inner left"></span>
+            <span class="core"></span>
+            <span class="ring inner right"></span>
+            <span class="ring outer right"></span>
+          </span>
+        </div>
+        <p class="hero-dek">Describe a man.<br>A school.<br>A career moment. A barrier.</p>
+        <div class="hero-footline">Real people · Real barriers · Real pathways</div>
+      </div>
+
+      <div class="hero-image-panel">
+        <img src="listen_assets/listen_01_eaeb46f1ab88.png" alt="Collaborative social-impact team in discussion">
+        <div class="hero-stats-overlay" aria-label="LISTEN corpus statistics">
+          <div class="stat"><strong id="statCount">24</strong><span>Real candidates</span></div>
+          <div class="stat"><strong>10</strong><span>Response forms</span></div>
+          <div class="stat"><strong>7</strong><span>Ways to listen</span></div>
+          <div class="stat"><strong>1</strong><span>ARBITER measurement</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-lower-band">
+      <div class="hero-lower-copy">Stop asking why men don't teach.<br>Measure what moves them toward the classroom — and what makes them stay.</div>
+      <div class="hero-lower-rule"></div>
+      <a class="hero-lower-link" href="#listenSurface">Start listening ↓</a>
+    </div>
+  </section>
+
+  <section class="mode-strip" id="listenSurface">
+    <div class="shell mode-row" id="modeRow">
+      <button class="mode-btn active" data-mode="person">Prospective teacher</button>
+      <button class="mode-btn" data-mode="community">Current educator</button>
+      <button class="mode-btn" data-mode="movement">System</button>
+    </div>
+  </section>
+
+  <section class="listen-panel">
+    <div class="shell">
+      <div class="prompt-grid">
+        <div>
+          <div class="prompt-wrap">
+            <textarea id="query" rows="3" spellcheck="false">A 29-year-old Black man has worked in youth development for six years. He loves mentoring young people, has never considered himself a teacher, worries about the salary, and does not want to return to school for years. What pathway could actually bring him into the classroom?</textarea>
+            <button class="go" id="go" type="button" aria-label="Measure">→</button>
+          </div>
+          <div class="examples" id="examples"></div>
+          <div class="status"><span id="statusText">ready · official-source corpus loaded</span><span id="candidateMeta">24 candidates</span></div>
+          <div class="error" id="errorBox"></div>
+        </div>
+        <div class="listen-note">One description enters. Fellowships, certification routes, residencies, mentorship networks, service pathways, incentives, leadership programs and retention models compete in the same ranked response field.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soul-strip">
+    <div class="shell soul-grid">
+      <article class="soul-card">
+        <div class="soul-media"><img src="listen_assets/listen_02_22973e9b2a3f.png" alt="Reflective individual in a bright workspace"></div>
+        <div class="soul-copy"><div class="soul-label">Person</div><h3 class="soul-title">Start with the man, not the category.</h3><p>A real person with motives, constraints, history, fear, purpose and agency.</p></div>
+      </article>
+      <article class="soul-card">
+        <div class="soul-media"><img src="listen_assets/listen_03_a00968e4ce48.png" alt="Small team working together around a table"></div>
+        <div class="soul-copy"><div class="soul-label">Community</div><h3 class="soul-title">Listen to why men enter — and why they leave.</h3><p>Mentorship, pay, certification, belonging, leadership and school culture can compete in the same field.</p></div>
+      </article>
+      <article class="soul-card">
+        <div class="soul-media"><img src="listen_assets/listen_04_9bcb27664a01.png" alt="Mentor and young man in conversation"></div>
+        <div class="soul-copy"><div class="soul-label">Movement</div><h3 class="soul-title">Measure the divergence.</h3><p>See where the teacher, principal, district, policymaker, student and father stop seeing the same problem.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="results" id="results">
+    <div class="results-head shell">
+      <div class="result-topline">
+        <div class="result-query" id="resultQuery"></div>
+        <div class="result-measure" id="resultMeasure"></div>
+      </div>
+      <div class="seats" id="seats"></div>
+      <div class="result-list" id="resultList"></div>
+    </div>
+  </section>
+
+  <section class="density">
+    <div class="shell">
+      <div class="section-head">
+        <h2>The pathway field.</h2>
+        <p>Real recruitment pathways, fellowships, residencies, networks, incentives, policy models and retention supports. Every candidate links back to a source.</p>
+      </div>
+      <div class="index-grid" id="indexGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer shell">
+  <div class="footer-left">Actual General Intelligence, Inc. · ARBITER coherence engine</div>
+  <div class="footer-logo-wrap" aria-label="LISTEN symbol">
+    <span class="footer-logo" aria-hidden="true">
+      <span class="ring outer left"></span>
+      <span class="ring inner left"></span>
+      <span class="core"></span>
+      <span class="ring inner right"></span>
+      <span class="ring outer right"></span>
+    </span>
+  </div>
+  <div class="footer-right">LISTEN · male educator recruitment + retention prototype</div>
+</footer>
+
+<script>
+const ARBITER_URL='https://recast-reviver-outlook.ngrok-free.dev/v1/compare';
+
+const DATA=[
+  {
+    "id": "nyc-men-teach",
+    "type": "pathway",
+    "title": "NYC Men Teach",
+    "org": "NYC Young Men's Initiative / NYC Public Schools",
+    "desc": "A recruitment and support initiative designed to bring more men of color into New York City classrooms through mentorship, resources, certification support and professional development.",
+    "tags": [
+      "men of color",
+      "recruitment",
+      "mentorship",
+      "certification",
+      "urban education"
+    ],
+    "source": "https://www.nyc.gov/site/ymi/teach/nyc-men-teach.page"
+  },
+  {
+    "id": "call-me-mister",
+    "type": "fellowship",
+    "title": "Call Me MISTER",
+    "org": "Clemson University",
+    "desc": "A teacher recruitment and retention model that develops diverse male educators through a cohort structure, mentorship, leadership development and sustained community.",
+    "tags": [
+      "Black male educators",
+      "cohort",
+      "mentorship",
+      "recruitment",
+      "retention"
+    ],
+    "source": "https://www.clemson.edu/education/programs/programs/call-me-mister.html"
+  },
+  {
+    "id": "desu-black-male-teacher-fellowship",
+    "type": "fellowship",
+    "title": "Black Male Teacher Fellowship",
+    "org": "Delaware State University",
+    "desc": "A fellowship dedicated to the recruitment, retention and wellness of male educators of color.",
+    "tags": [
+      "Black men",
+      "wellness",
+      "teacher preparation",
+      "retention",
+      "recruitment"
+    ],
+    "source": "https://chess.desu.edu/departments/education/black-male-teacher-fellowship"
+  },
+  {
+    "id": "cbed-black-male-engagement",
+    "type": "retention",
+    "title": "Black Male Engagement",
+    "org": "Center for Black Educator Development",
+    "desc": "Professional learning, mentorship experiences and affinity spaces designed to support Black men in education from aspiration through seasoned practice and improve retention.",
+    "tags": [
+      "Black male educators",
+      "affinity space",
+      "mentorship",
+      "professional learning",
+      "retention"
+    ],
+    "source": "https://thecenterblacked.org/professional-learning/black-male-engagement/"
+  },
+  {
+    "id": "profound-gentlemen",
+    "type": "network",
+    "title": "Profound Gentlemen",
+    "org": "Profound Gentlemen",
+    "desc": "A national community for male educators of color focused on coaching, networking, mentorship, development and long-term retention.",
+    "tags": [
+      "male educators of color",
+      "coaching",
+      "network",
+      "mentorship",
+      "retention"
+    ],
+    "source": "https://profoundgentlemen.org/"
+  },
+  {
+    "id": "real-men-teach",
+    "type": "campaign",
+    "title": "Real Men Teach",
+    "org": "Real Men Teach",
+    "desc": "A national campaign that reimagines what it means to be a teacher while supporting the recruitment and retention of male educators of color.",
+    "tags": [
+      "male educators of color",
+      "campaign",
+      "recruitment",
+      "retention",
+      "identity"
+    ],
+    "source": "https://realmenteach.com/our-campaign"
+  },
+  {
+    "id": "nfblme",
+    "type": "leadership",
+    "title": "National Fellowship for Black and Latino Male Educators",
+    "org": "NFBLME",
+    "desc": "A leadership fellowship designed to increase the presence, longevity and impact of Black and Latino men in principal, senior leadership and C-suite roles across education.",
+    "tags": [
+      "Black men",
+      "Latino men",
+      "leadership",
+      "career longevity",
+      "executive pipeline"
+    ],
+    "source": "https://www.nfblme.org/"
+  },
+  {
+    "id": "leading-men-fellowship",
+    "type": "fellowship",
+    "title": "Leading Men Fellowship",
+    "org": "The Literacy Lab",
+    "desc": "A fellowship that gives young men of color a paid entry point into education through early literacy work in pre-K classrooms, training and mentorship.",
+    "tags": [
+      "young men of color",
+      "early literacy",
+      "paid pathway",
+      "pre-K",
+      "mentorship"
+    ],
+    "source": "https://marylandpublicschools.org/about/pages/ofpos/gac/leadingmenfellowship/index.aspx"
+  },
+  {
+    "id": "city-year-teacher-pathways",
+    "type": "service",
+    "title": "Teacher Pathways",
+    "org": "City Year",
+    "desc": "A service-to-teaching pathway that lets AmeriCorps members build sustained school-based experience before committing to a teaching career.",
+    "tags": [
+      "AmeriCorps",
+      "service",
+      "school experience",
+      "career exploration",
+      "teacher pipeline"
+    ],
+    "source": "https://www.cityyear.org/alumni-life/career-resources/teacher-pathways/"
+  },
+  {
+    "id": "city-year-teaching-fellowship",
+    "type": "residency",
+    "title": "Teaching Fellowship",
+    "org": "City Year",
+    "desc": "A residency-style pathway in which fellows continue school-based service while earning teacher licensure with coaching, mentorship and graduate preparation.",
+    "tags": [
+      "residency",
+      "licensure",
+      "mentor teacher",
+      "graduate preparation",
+      "service"
+    ],
+    "source": "https://www.cityyear.org/alumni-life/career-resources/teacher-pathways/teaching-fellowships/"
+  },
+  {
+    "id": "teach-for-america",
+    "type": "corps",
+    "title": "Teach For America Corps",
+    "org": "Teach For America",
+    "desc": "A paid two-year teaching and leadership pathway that brings candidates from a wide range of majors, occupations and backgrounds into underserved classrooms.",
+    "tags": [
+      "career switcher",
+      "full-time teaching",
+      "leadership",
+      "underserved schools",
+      "alternative pathway"
+    ],
+    "source": "https://www.teachforamerica.org/corps"
+  },
+  {
+    "id": "city-teaching-alliance",
+    "type": "residency",
+    "title": "City Teaching Alliance",
+    "org": "City Teaching Alliance",
+    "desc": "A teacher preparation pathway focused on urban classrooms, combining training, clinical experience and sustained development.",
+    "tags": [
+      "urban education",
+      "teacher preparation",
+      "clinical practice",
+      "career entry",
+      "development"
+    ],
+    "source": "https://urbanteachers.org/"
+  },
+  {
+    "id": "nctr-residency",
+    "type": "residency",
+    "title": "Teacher Residency Model",
+    "org": "National Center for Teacher Residencies",
+    "desc": "A yearlong teacher preparation model combining academic coursework with hands-on learning alongside experienced educators, designed around preparation and retention.",
+    "tags": [
+      "residency",
+      "yearlong preparation",
+      "mentorship",
+      "cohort",
+      "retention"
+    ],
+    "source": "https://nctresidencies.org/our-residency-model/"
+  },
+  {
+    "id": "california-residency-pathway",
+    "type": "credential",
+    "title": "Teacher Residency Pathway",
+    "org": "California Commission on Teacher Credentialing",
+    "desc": "A paid-stipend credential route pairing post-baccalaureate teacher preparation with extended mentoring and student teaching.",
+    "tags": [
+      "credential",
+      "paid stipend",
+      "student teaching",
+      "mentor",
+      "career entry"
+    ],
+    "source": "https://www.ctc.ca.gov/aspiring-educators/roadmap-to-teaching/pathways-to-credentialing/"
+  },
+  {
+    "id": "sdcoe-career-switcher",
+    "type": "pathway",
+    "title": "Degree / Experience Pathways",
+    "org": "San Diego County Office of Education",
+    "desc": "A set of routes for people with bachelor's degrees, military backgrounds or industry experience to enter teaching, including options that allow candidates to earn income while completing credential requirements.",
+    "tags": [
+      "career switcher",
+      "military experience",
+      "industry experience",
+      "credential",
+      "earn while learning"
+    ],
+    "source": "https://www.sdcoe.net/educatorpathways/pathways/degreeexperience"
+  },
+  {
+    "id": "teachnyc-pathways",
+    "type": "credential",
+    "title": "Pathways to Teaching",
+    "org": "NYC Public Schools",
+    "desc": "Certification pathways with financial support, flexible coursework, mentorship and hands-on practice for aspiring teachers entering high-need classrooms and subjects.",
+    "tags": [
+      "certification",
+      "financial support",
+      "flexible coursework",
+      "mentorship",
+      "high-need schools"
+    ],
+    "source": "https://teachnyc.net/pathways-to-teaching"
+  },
+  {
+    "id": "cuny-nyc-men-teach",
+    "type": "support",
+    "title": "CUNY NYC Men Teach",
+    "org": "City University of New York",
+    "desc": "Academic and financial support for aspiring educators, with dedicated help through certification and hiring into the New York City teaching workforce.",
+    "tags": [
+      "academic support",
+      "financial support",
+      "certification",
+      "hiring",
+      "men of color"
+    ],
+    "source": "https://www.cuny.edu/academics/academic-programs/teacher-education-programs/nyc-men-teach/"
+  },
+  {
+    "id": "educators-rising",
+    "type": "pipeline",
+    "title": "Educators Rising",
+    "org": "Educators Rising",
+    "desc": "An early educator pipeline that helps young people explore teaching, develop professional identity and build a pathway into the profession before college completion.",
+    "tags": [
+      "high school",
+      "college",
+      "early pipeline",
+      "career exploration",
+      "teacher identity"
+    ],
+    "source": "https://educatorsrising.org/"
+  },
+  {
+    "id": "black-teacher-pipeline",
+    "type": "fellowship",
+    "title": "Black Teacher Pipeline Fellowship",
+    "org": "Center for Black Educator Development",
+    "desc": "A pipeline approach connecting early exposure to teaching with scholarships, practical experience and long-term support for future Black educators.",
+    "tags": [
+      "Black educators",
+      "scholarship",
+      "pipeline",
+      "practical experience",
+      "retention"
+    ],
+    "source": "https://thecenterblacked.org/"
+  },
+  {
+    "id": "troops-to-teachers",
+    "type": "service",
+    "title": "Troops to Teachers",
+    "org": "U.S. Department of Defense",
+    "desc": "A service-to-classroom pathway that helps eligible service members and veterans explore teaching careers and navigate certification.",
+    "tags": [
+      "military veterans",
+      "career transition",
+      "certification",
+      "service",
+      "teacher shortage"
+    ],
+    "source": "https://www.dantes.mil/troopstoteachers/"
+  },
+  {
+    "id": "aacte-male-teacher-nic",
+    "type": "research",
+    "title": "Black and Hispanic / Latino Male Teacher Networked Improvement Community",
+    "org": "AACTE",
+    "desc": "A research and improvement effort focused on promising practices for recruiting and retaining Black and Hispanic / Latino male teachers.",
+    "tags": [
+      "research",
+      "recruitment",
+      "retention",
+      "men of color",
+      "promising practices"
+    ],
+    "source": "https://aacte.org/report/the-black-and-hispanic-latino-male-teacher-networked-improvement-community-promising-practices-to-recruit-and-retain-male-teachers-of-color/"
+  },
+  {
+    "id": "missing-misters",
+    "type": "research",
+    "title": "Missing Misters",
+    "org": "American Institute for Boys and Men",
+    "desc": "Research examining the declining share of male teachers and the broader gender imbalance in the teaching workforce.",
+    "tags": [
+      "male teachers",
+      "workforce trend",
+      "research",
+      "gender",
+      "policy"
+    ],
+    "source": "https://aibm.org/research/missing-misters/"
+  },
+  {
+    "id": "men-policy-institute",
+    "type": "network",
+    "title": "Male Educator Network & Policy Institute",
+    "org": "MEN",
+    "desc": "A professional organization and research policy institute dedicated to growing the teacher workforce for men through research, advocacy, network building and policy.",
+    "tags": [
+      "male educators",
+      "policy",
+      "research",
+      "network",
+      "teacher workforce"
+    ],
+    "source": "https://maleeducators.org/"
+  },
+  {
+    "id": "teacher-registered-apprenticeship",
+    "type": "apprenticeship",
+    "title": "Teacher Registered Apprenticeship",
+    "org": "Apprenticeship.gov / U.S. Department of Labor",
+    "desc": "An earn-while-you-learn route that can combine paid work experience, mentorship, classroom instruction and a recognized credential for future teachers.",
+    "tags": [
+      "apprenticeship",
+      "paid pathway",
+      "mentor",
+      "credential",
+      "career switcher"
+    ],
+    "source": "https://www.apprenticeship.gov/"
+  }
+];
+
+const MODE_EXAMPLES={
+  "person": [
+    "A 29-year-old Black man has worked in youth development for six years. He loves mentoring young people, has never considered himself a teacher, worries about the salary, and does not want to return to school for years. What pathway could actually bring him into the classroom?",
+    "A 22-year-old Latino college senior is the first in his family to graduate. He is drawn to teaching but feels pressure to choose a higher-paying career and does not know how certification works. What could move him from interest to entry?"
+  ],
+  "community": [
+    "A Black male middle-school teacher is in year four. He loves his students but feels isolated, is repeatedly treated as the default disciplinarian, sees no credible advancement path, and is considering leaving. What would most directly improve retention?",
+    "A male elementary teacher is thriving with students but exhausted by workload, low pay and the pressure of being one of the only men in his building. What support structure is most coherent with keeping him in the profession?"
+  ],
+  "movement": [
+    "A large urban district wants to recruit and retain more male educators of color but its current strategy is mostly marketing. What combination of pathways, incentives, mentorship and culture change best fits the problem?",
+    "A state wants to grow the male teacher workforce without lowering preparation quality. Which interventions most coherently address entry barriers, affordability, belonging and long-term retention?"
+  ]
+};
+
+const SEATS={
+  "human": {
+    "label": "the prospective teacher",
+    "prefix": "From the lived perspective of the prospective male educator described, prioritize dignity, agency, affordability, career risk, belonging, preparation burden, salary, time, family obligations and what he would actually accept or use. "
+  },
+  "father": {
+    "label": "the current educator",
+    "prefix": "From the perspective of a current male educator deciding whether to stay, prioritize school culture, workload, isolation, compensation, mentorship, professional identity, advancement and long-term sustainability. "
+  },
+  "school": {
+    "label": "the principal",
+    "prefix": "From the perspective of a principal responsible for staffing, student outcomes, teacher effectiveness, school culture and retention, evaluate what fits. "
+  },
+  "funder": {
+    "label": "the district",
+    "prefix": "From the perspective of a district responsible for recruitment, certification pipelines, staffing shortages, workforce diversity, retention and scale, evaluate what fits. "
+  },
+  "organizer": {
+    "label": "the policymaker",
+    "prefix": "From the perspective of a policymaker seeking durable workforce change, evaluate what fits across affordability, access, credentialing, compensation, preparation quality, retention and scale. "
+  },
+  "employer": {
+    "label": "the student",
+    "prefix": "From the perspective of students who need excellent, stable, trusted educators and may benefit from seeing men represented across teaching and leadership, evaluate what fits. "
+  },
+  "fatherSeat": {
+    "label": "the father",
+    "prefix": "From the perspective of a father who wants boys and young men to see teaching as credible, skilled, respected and economically viable work, evaluate what fits. "
+  }
+};
+
+let currentMode='person';
+let currentSeat='human';
+let currentQuery='';
+let baselineScores=new Map();
+let lastResults=[];
+
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+
+function candidateText(m){
+  return [
+    `${m.title}.`,
+    `Type: ${m.type}.`,
+    `Organization: ${m.org}.`,
+    `Description: ${m.desc}`,
+    `Signals: ${m.tags.join(', ')}.`
+  ].join(' ');
+}
+
+function extractRows(data){
+  if(Array.isArray(data?.all))return data.all;
+  if(Array.isArray(data?.top))return data.top;
+  if(Array.isArray(data?.results))return data.results;
+  if(Array.isArray(data?.matches))return data.matches;
+  if(Array.isArray(data))return data;
+  return [];
+}
+function rowText(row){
+  if(Array.isArray(row))return row[0]??'';
+  return row?.text??row?.candidate??row?.content??row?.document??row?.value??row?.input??'';
+}
+function rowScore(row){
+  if(Array.isArray(row))return Number(row[1]??0);
+  return Number(row?.score??row?.coherence??row?.similarity??row?.value_score??0);
+}
+function rowIndex(row){
+  const v=Array.isArray(row)?row[2]:(row?.index??row?.idx??row?.candidate_index);
+  const n=Number(v); return Number.isInteger(n)&&n>=0?n:null;
+}
+function matchRow(row,candidates,texts){
+  const idx=rowIndex(row);
+  if(idx!==null&&candidates[idx])return candidates[idx];
+  const t=String(rowText(row)||'').trim().replace(/\s+/g,' ');
+  if(!t)return null;
+  for(let i=0;i<texts.length;i++){
+    const c=texts[i].trim().replace(/\s+/g,' ');
+    if(c===t||c.startsWith(t)||t.startsWith(c.slice(0,180)))return candidates[i];
+  }
+  return null;
+}
+
+async function measure(query,seat='human'){
+  const fullQuery=(SEATS[seat]?.prefix||'')+query;
+  const texts=DATA.map(candidateText);
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),45000);
+  try{
+    const res=await fetch(ARBITER_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json','ngrok-skip-browser-warning':'true'},
+      body:JSON.stringify({query:fullQuery,candidates:texts,use_freq:true,top_k:DATA.length}),
+      signal:controller.signal
+    });
+    const raw=await res.text();
+    if(!res.ok)throw new Error(`ARBITER ${res.status}: ${raw.slice(0,180)}`);
+    const data=JSON.parse(raw);
+    const rows=extractRows(data);
+    const mapped=rows.map(r=>{
+      const entity=matchRow(r,DATA,texts);
+      return entity?{...entity,score:rowScore(r)}:null;
+    }).filter(Boolean).sort((a,b)=>b.score-a.score);
+    if(!mapped.length)throw new Error('ARBITER returned no mappable rows.');
+    return mapped;
+  }finally{clearTimeout(timeout)}
+}
+
+function renderExamples(){
+  $('#examples').innerHTML=MODE_EXAMPLES[currentMode].map((q,i)=>`<button class="example" data-example="${i}">${i===0?'try this':'or this'}</button>`).join('');
+  $$('.example').forEach(btn=>btn.onclick=()=>{$('#query').value=MODE_EXAMPLES[currentMode][Number(btn.dataset.example)];resizeQuery()});
+}
+
+function renderSeats(){
+  $('#seats').innerHTML=Object.entries(SEATS).map(([key,v])=>`<button class="seat-btn ${key===currentSeat?'active':''}" data-seat="${key}">${esc(v.label)}</button>`).join('');
+  $$('.seat-btn').forEach(btn=>btn.onclick=async()=>{
+    const seat=btn.dataset.seat;
+    if(seat===currentSeat)return;
+    currentSeat=seat;
+    renderSeats();
+    await runMeasurement({reuseQuery:true});
+  });
+}
+
+function renderResults(results){
+  lastResults=results;
+  document.body.classList.add('has-results');
+  $('#resultQuery').textContent=currentQuery;
+  $('#resultMeasure').innerHTML=`${DATA.length} real candidates<br>${new Set(DATA.map(d=>d.type)).size} response forms<br>seat · ${esc(SEATS[currentSeat].label)}`;
+  $('#resultList').innerHTML=results.slice(0,10).map((r,i)=>{
+    const base=baselineScores.get(r.id);
+    const delta=(currentSeat!=='human'&&Number.isFinite(base))?r.score-base:null;
+    const deltaText=delta===null?'':`<span class="delta">Δ ${delta>=0?'+':''}${delta.toFixed(3)} vs person</span>`;
+    return `
+      <button class="result-row ${i===0?'top':''}" data-id="${esc(r.id)}">
+        <span class="cell rank">${String(i+1).padStart(2,'0')}</span>
+        <span class="cell type">${esc(r.type)}</span>
+        <span class="cell title-cell"><h3>${esc(r.title)}</h3><span class="org">${esc(r.org)}</span></span>
+        <span class="cell desc">${esc(r.desc)}</span>
+        <span class="cell score"><strong>${r.score.toFixed(3)}</strong>coherence${deltaText}</span>
+      </button>
+      <div class="result-detail" data-detail="${esc(r.id)}">
+        <div>
+          <strong>${esc(r.title)}</strong>
+          <div class="detail-tags">${r.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+        </div>
+        <div class="source-note">Official source<br><a class="source-link" href="${esc(r.source)}" target="_blank" rel="noopener">open source ↗</a></div>
+      </div>`;
+  }).join('');
+  $$('.result-row').forEach(row=>row.onclick=()=>{
+    const was=row.classList.contains('open');
+    $$('.result-row').forEach(r=>r.classList.remove('open'));
+    if(!was)row.classList.add('open');
+  });
+  renderSeats();
+  $('#results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+async function runMeasurement({reuseQuery=false}={}){
+  const q=(reuseQuery?currentQuery:$('#query').value).trim();
+  if(!q)return;
+  currentQuery=q;
+  $('#errorBox').classList.remove('show');
+  $('#loaderQuery').textContent=q;
+  $('#loaderMeta').textContent=`MEASURING ${DATA.length} REAL ENTITIES · ${SEATS[currentSeat].label.toUpperCase()}`;
+  document.body.classList.add('loading');
+  const started=performance.now();
+  try{
+    const results=await measure(q,currentSeat);
+    if(currentSeat==='human')baselineScores=new Map(results.map(r=>[r.id,r.score]));
+    const elapsed=((performance.now()-started)/1000).toFixed(1);
+    $('#statusText').textContent=`resolved · ${elapsed}s · ARBITER`;
+    renderResults(results);
+  }catch(err){
+    const msg=err?.name==='AbortError'?'ARBITER request timed out.':(err?.message||String(err));
+    $('#errorBox').textContent=msg;
+    $('#errorBox').classList.add('show');
+    $('#statusText').textContent='measurement failed';
+  }finally{
+    document.body.classList.remove('loading');
+  }
+}
+
+function renderIndex(){
+  $('#statCount').textContent=DATA.length;
+  $('#candidateMeta').textContent=`${DATA.length} candidates`;
+  $('#indexGrid').innerHTML=DATA.map(d=>`<article class="index-item">
+    <div class="index-copy"><div><div class="index-type">${esc(d.type)}</div><h4>${esc(d.title)}</h4><p>${esc(d.desc)}</p></div>
+    <a class="index-source" href="${esc(d.source)}" target="_blank" rel="noopener">${esc(d.org)} ↗</a></div>
+  </article>`).join('');
+}
+
+function resizeQuery(){const el=$('#query');el.style.height='auto';el.style.height=Math.min(240,el.scrollHeight)+'px'}
+
+$$('.mode-btn').forEach(btn=>btn.onclick=()=>{
+  currentMode=btn.dataset.mode;
+  $$('.mode-btn').forEach(b=>b.classList.toggle('active',b===btn));
+  $('#query').value=MODE_EXAMPLES[currentMode][0];
+  renderExamples();
+  resizeQuery();
+});
+$('#go').onclick=()=>runMeasurement();
+$('#query').addEventListener('input',resizeQuery);
+$('#query').addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();runMeasurement();}
+});
+renderExamples();
+renderIndex();
+resizeQuery();
+</script>
+
+
+</body>
+</html>
